@@ -1,4 +1,5 @@
 {
+  "externalControllerServices" : { },
   "flow" : {
     "createdTimestamp" : 1775652272800,
     "description" : "Flow: SDK-Demo-Flow",
@@ -7,5 +8,157 @@
     "name" : "SDK-Demo-Flow",
     "versionCount" : 0
   },
-  "latest" : false
+  "flowContents" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ee23c4da-69d3-3f12-86e2-82733bf30a2f",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a688729c-a360-32a1-97ed-71a66565a530",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "641f47b0-a476-3e83-8e01-1488b6142385",
+        "name" : "Generate Test Data",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "defaultBackPressureDataSizeThreshold" : "1 GB",
+    "defaultBackPressureObjectThreshold" : 10000,
+    "defaultFlowFileExpiration" : "0 sec",
+    "executionEngine" : "INHERITED",
+    "externalControllerServiceReferences" : { },
+    "flowFileConcurrency" : "UNBOUNDED",
+    "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+    "funnels" : [ {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "ee23c4da-69d3-3f12-86e2-82733bf30a2f",
+      "position" : {
+        "x" : 400.0,
+        "y" : 600.0
+      }
+    } ],
+    "identifier" : "flow-contents-group",
+    "inputPorts" : [ ],
+    "labels" : [ ],
+    "maxConcurrentTasks" : 1,
+    "name" : "SDK Demo Flow",
+    "outputPorts" : [ ],
+    "parameterContextName" : "SDK Demo Context",
+    "position" : {
+      "x" : 0.0,
+      "y" : 0.0
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "runtime-record-generation-nar",
+        "group" : "com.snowflake.openflow.runtime",
+        "version" : "2026.3.12.15"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "641f47b0-a476-3e83-8e01-1488b6142385",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Generate Test Data",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 400.0,
+        "y" : 400.0
+      },
+      "properties" : {
+        "Batch Size" : "5",
+        "Output Structure" : "JSON_ARRAY",
+        "JSON Schema" : "{\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"integer\"}, \"name\": {\"type\": \"string\"}, \"timestamp\": {\"type\": \"string\", \"format\": \"date-time\"}}}"
+      },
+      "propertyDescriptors" : {
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Output Structure" : {
+          "displayName" : "Output Structure",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Structure",
+          "sensitive" : false
+        },
+        "JSON Schema" : {
+          "displayName" : "JSON Schema",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "JSON Schema",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "#{schedule.interval}",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "com.snowflake.openflow.runtime.processors.record.generation.GenerateJSON",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "scheduledState" : "ENABLED",
+    "statelessFlowTimeout" : "1 min"
+  },
+  "flowEncodingVersion" : "1.0",
+  "latest" : false,
+  "parameterContexts" : {
+    "SDK Demo Context" : {
+      "componentType" : "PARAMETER_CONTEXT",
+      "inheritedParameterContexts" : [ ],
+      "name" : "SDK Demo Context",
+      "parameters" : [ {
+        "description" : "Number of records per batch",
+        "name" : "record.batch.size",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "10"
+      }, {
+        "description" : "How often to generate records",
+        "name" : "schedule.interval",
+        "provided" : false,
+        "sensitive" : false,
+        "value" : "1 min"
+      } ]
+    }
+  },
+  "parameterProviders" : { },
+  "snapshotMetadata" : {
+    "author" : "ANPRICE",
+    "flowIdentifier" : "SDK-Demo-Flow",
+    "timestamp" : 1775652273430
+  }
 }
