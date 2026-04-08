@@ -123,7 +123,7 @@
       "retryCount" : 10,
       "runDurationMillis" : 0,
       "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "#{schedule.interval}",
+      "schedulingPeriod" : "2 min",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "com.snowflake.openflow.runtime.processors.record.generation.GenerateJSON",
@@ -159,6 +159,6 @@
   "snapshotMetadata" : {
     "author" : "ANPRICE",
     "flowIdentifier" : "SDK-Demo-Flow",
-    "timestamp" : 1775652273430
+    "timestamp" : 1775652765386
   }
 }
