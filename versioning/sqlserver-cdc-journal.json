@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1785473571410,
+    "description" : "Flow: sqlserver-cdc-journal",
+    "identifier" : "sqlserver-cdc-journal",
+    "lastModifiedTimestamp" : 1785473571410,
+    "name" : "sqlserver-cdc-journal",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
